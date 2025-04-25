@@ -1,4 +1,3 @@
-
 import { Card } from "@/components/ui/card";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
@@ -16,6 +15,39 @@ const marketData = [
   { symbol: 'SOL', price: '$98.45', change: '-0.5%' },
 ];
 
+const newsData = [
+  {
+    date: 'April 5, 2023',
+    title: 'Apple Stock Insiders Sell Their Shares, Future Prospects Not Promising (NASDAQ:AAPL)',
+    image: '/apple-news.png'
+  },
+  {
+    date: 'April 5, 2023',
+    title: 'Apple Stock Insiders Sell Their Shares, Future Prospects Not Promising (NASDAQ:AAPL)',
+    image: '/apple-news.png'
+  },
+  {
+    date: 'April 5, 2023',
+    title: 'Apple Stock Insiders Sell Their Shares, Future Prospects Not Promising (NASDAQ:AAPL)',
+    image: '/apple-news.png'
+  },
+  {
+    date: 'April 5, 2023',
+    title: 'Apple Stock Insiders Sell Their Shares, Future Prospects Not Promising (NASDAQ:AAPL)',
+    image: '/apple-news.png'
+  },
+  {
+    date: 'April 5, 2023',
+    title: 'Apple Stock Insiders Sell Their Shares, Future Prospects Not Promising (NASDAQ:AAPL)',
+    image: '/apple-news.png'
+  },
+  {
+    date: 'April 5, 2023',
+    title: 'Apple Stock Insiders Sell Their Shares, Future Prospects Not Promising (NASDAQ:AAPL)',
+    image: '/apple-news.png'
+  },
+];
+
 const StockDashboard = () => {
   return (
     <div className="container mx-auto p-4 space-y-6">
@@ -28,6 +60,9 @@ const StockDashboard = () => {
           <span className="text-gray-400">1M</span>
         </div>
       </div>
+
+      {/* News Section */}
+     
 
       {/* Main Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -106,8 +141,67 @@ const StockDashboard = () => {
             </div>
           </div>
         </Card>
+        {/* news section */}
+        <div className="mb-8">
+          <h2 className="text-xl font-semibold text-white mb-4">News</h2>
+          <div className="flex gap-4">
+            {/* Left Column */}
+            <div className="flex flex-col gap-4">
+              {newsData.slice(0, 3).map((news, index) => (
+                <Card 
+                  key={index}
+                  className="bg-[#0F1820] border-[#1F2937] overflow-hidden hover:border-blue-500 transition-all cursor-pointer w-[607px] h-[123px]"
+                >
+                  <div className="flex items-center h-full p-6">
+                    <div className="w-16 h-16 rounded-lg bg-blue-500 flex-shrink-0 mr-6">
+                      <img
+                        src={news.image}
+                        alt="News"
+                        className="w-full h-full rounded-lg object-cover"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-gray-400 text-sm mb-2">{news.date}</p>
+                      <h3 className="text-white text-base font-medium leading-snug line-clamp-2">
+                        {news.title}
+                      </h3>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+
+            {/* Right Column */}
+            <div className="flex flex-col gap-4">
+              {newsData.slice(3, 6).map((news, index) => (
+                <Card 
+                  key={index + 3}
+                  className="bg-[#0F1820] border-[#1F2937] overflow-hidden hover:border-blue-500 transition-all cursor-pointer w-[607px] h-[123px]"
+                >
+                  <div className="flex items-center h-full p-6">
+                    <div className="w-16 h-16 rounded-lg bg-blue-500 flex-shrink-0 mr-6">
+                      <img
+                        src={news.image}
+                        alt="News"
+                        className="w-full h-full rounded-lg object-cover"
+                      />
+                    </div>
+                    <div className="flex-1">
+                      <p className="text-gray-400 text-sm mb-2">{news.date}</p>
+                      <h3 className="text-white text-base font-medium leading-snug line-clamp-2">
+                        {news.title}
+                      </h3>
+                    </div>
+                  </div>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
+    
   );
 };
 
